@@ -1,65 +1,128 @@
-# Final_Exam – Brief Summary
+# Final Exam — AI-Assisted Python Programming (Brief Summary)
 
-This repository contains my final assessment for the introductory Python course. It demonstrates **iterative prompt engineering**, **beginner‑level debugging and corrections**, a **refined HTTP/JSON function with basic error handling**, and a **manual CLI mini‑app** built only with Week 1–10 concepts.
+> Generated on 2025-11-07. This README.md follows the brief‑summary guidance from the attached Word file.
 
-## Files
-- **Final_Exam.ipynb** — Full write‑up with prompts, pseudocode, analyses, and code cells.
-- **task_manager.py** — Beginner‑friendly CLI Task Manager (add/list/remove, simple file I/O).
-- **conversation_log.txt** — Short logs of prompt iterations per exam section (as required).
+> Detected requirement context (excerpt):
+>
+> ructure:
+> final-exam-[yourname]/
+> ├── Final_Exam.ipynb (main notebook)
+> ├── conversation_log.txt
+> ├── task_manager.py (if created separately)
+> ├── weather_fetcher.py (if created separately)
+> └── README.md (brief summary)
+> Save to GitHub after completing each section
+> Final submission: Share private repo with instructor GitHub account
+> Tag final version as v1.0 using GitHub interface
+> Notebook Cell Structure (Follow Course Standard)
+> # Section X.Y - [Description]
+> # Course constraint: [Week X concept being u
+> ...
+> pository structure:
+> final-exam-[yourname]/
+> ├── Final_Exam.ipynb (main notebook)
+> ├── conversation_log.txt
+> ├── task_manager.py (if created separately)
+> ├── weather_fetcher.py (if created separately)
+> └── README.md (brief summary)
+> Save to GitHub after completing each section
+> Final submission: Share private repo with instructor GitHub account
+> Tag final version as v1.0 using GitHub interface
+> Notebook Cell Structure (Follow Course Standard)
+> # Section X.Y - [Description]
+> # Course constraint: [Week X conc
+> ...
+> Time Management Guide
+> Section 1: 45 minutes (Iterative Prompting)
+> Section 2: 40 minutes (Debug & Correct)
+> Section 3: 50 minutes (Debug & Refine)
+> Section 4: 45 minutes (Implement & Reflect)
+> Submission Requirements
+> GitHub Repository Setup:
+> Create private repository: final-exam-[yourname]
+> Work in Google Colab with our standard course environment
+> Repository structure:
+> final-exam-[yourname]/
+> ├── Final_Exam.ipynb (main notebook)
+> ├── conversation_log.txt
+> ├── task_manager.py (if created separately)
+> ├── 
+> ...
+> ell to test your functions
+> if __name__ == "__main__":
+>     import doctest
+>     doctest.testmod(verbose=True)
+> GitHub Workflow:
+> # To tag your final version (use GitHub web interface):
+> # Go to your repo → Releases → Create new release → Tag: v1.0
+> Academic Integrity Reminder:
+> All course references must be authentic (we can verify)
+> Code complexity must match your previous coursework
+> 
+> doctest examples should reflect Week 9 lab style
+> AI interactions should show you constraining responses to course level
+> 
+> ...
+> Setup:
+> Create private repository: final-exam-[yourname]
+> Work in Google Colab with our standard course environment
+> Repository structure:
+> final-exam-[yourname]/
+> ├── Final_Exam.ipynb (main notebook)
+> ├── conversation_log.txt
+> ├── task_manager.py (if created separately)
+> ├── weather_fetcher.py (if created separately)
+> └── README.md (brief summary)
+> Save to GitHub after completing each section
+> Final submission: Share private repo with instructor GitHub account
+> Tag final version as v1.0 using GitHub interf
 
-## Section Overview
+
+## Overview
+This repository contains my Final Exam deliverables for the introductory Python course. It demonstrates iterative prompt engineering, debugging with AI, basic API refinement, and a manual implementation constrained to Weeks 1–10 techniques (lists/dicts, simple functions, while‑loops, basic try/except, and simple file I/O).
+
+## Repo Contents
+- **Final_Exam.ipynb** — Main Colab notebook with all sections executed in order.
+- **conversation_log.txt** — Short, structured prompts and AI responses per subsection, with course constraint checks.
+- **task_manager.py** — Beginner‑friendly CLI Task Manager (fixed and rewritten in Section 2.2).
+- **weather_fetcher.py** — refined_safe_weather_data_fetch() (Section 3.2) with basic error handling and friendly messages.
+- **README.md** — This brief summary.
+
+## Section Highlights
 ### Section 1 — Iterative Prompt Engineering (30%)
-- **1.1** Initial prompt + **modular pseudocode** for a CLI Task Manager using only lists/dicts, loops, and basic try/except.
-- **1.2** Two refinements:
-  - Robustness: blank/duplicate titles, safe removals, blank filenames, gentle recovery.
-  - UX: clean `show_menu()`, “Your Tasks (N)”, concise save/load messages, exit confirm.
-
-**Outcome:** Shows how successive prompts improve **defensive programming**, **control‑flow clarity**, and **user experience**.
+- Initial pseudocode and two refinements improving robustness (validation, duplicate checks, safe removal) and UX (clean menu, counts, exit confirm).
+- ~150‑word analysis linking improvements to Week 3–6 concepts (user interaction; defensive programming).
 
 ### Section 2 — Debug & Correct with AI (25%)
-- **2.1** Error list for a flawed beginner script: name/iterable typos, negative index behavior, 0‑ vs 1‑based mismatch, missing conversions, unclear messages.
-- **2.2** **Rewritten `task_manager.py`**:
-  - Data model: `tasks = [{"id": int, "text": str}]` + incremental `next_id`.
-  - Safe input conversion, range checks, duplicate/empty validation.
-  - Simple, robust file I/O (`save_tasks`, `load_tasks`) using `try/except` and UTF‑8.
-  - Clear CLI loop and messages, with 1‑based list display.
+- Error Identification for a broken task manager: naming/reference typos, range checks, negative index behavior, input conversion, unclear messages.
+- Fix & Rewrite: task_manager.py using a list of dicts {'id': int, 'text': str}, while‑loop menu, simple file I/O, and try/except for int() and open().
 
-### Section 3 — WeatherWise API Refinement (20%)
-- **3.1** Issue analysis (bare `except`, no status check, JSON/key assumptions, inconsistent return, http vs https, etc.) linked to course weeks.
-- **3.2** **`refined_safe_weather_data_fetch(city)`**:
-  - Uses **https**, checks `status_code`, basic `try/except`, `dict.get` + type/length checks.
-  - Returns `dict` or `None` with friendly prints; includes doctest‑style examples.
-- **3.3** Comparison: similarities (intro error handling), differences (explicit guards), improvement note (document function contract).
+### Section 3 — WeatherWise API (20%)
+- Issue Analysis: bare except, missing status check, blind JSON assumptions, inconsistent returns, http vs https, unfriendly messages.
+- Refined Function: refined_safe_weather_data_fetch(city) uses https, checks status code, basic json() handling, guarded key access, and prints beginner‑friendly errors.
 
 ### Section 4 — Manual Implementation & Reflection (25%)
-- **4.1** Minimal CLI (Week 4–6 scope): in‑memory list of strings + add/list/remove with safe `int()` conversion and boundary checks; simple menu.
-- **4.2** Reflection: where course concepts (Weeks 3–8) shaped validation, UX, and graceful failure; plan to document function contracts and returns.
+- Manual (Week‑4/5/6‑only) Task Manager: in‑memory list[str], add/list/remove with simple validation and try/except for conversion, plus a minimal menu.
+- Course‑Connected Reflection: planning before coding, loops/menus, defensive programming; how these shaped the final deliverables.
 
 ## How to Run
-### Task Manager (beginner CLI)
-```bash
-python task_manager.py
-```
-Menu:
-1. Add task
-2. List tasks
-3. Remove task (by shown number, 1‑based)
-4. Save tasks to file
-5. Load tasks from file
-6. Quit
+1. Open Final_Exam.ipynb in Google Colab (badge at the top of the notebook).
+2. Run cells from top to bottom; each subsection includes notes and doctest examples.
+3. (Optional) Run local scripts:
+   
+   ```bash
+   python -m doctest -v task_manager.py
+   python -m doctest -v weather_fetcher.py
+   ```
 
-- Saves as TSV lines: `id\ttext`
-- Handles blank/duplicate titles, bad numbers, missing files.
+## Submission & Release
+- Ensure conversation_log.txt is UTF‑8 text, includes at least one prompt per required subsection, and sits alongside Final_Exam.ipynb and task_manager.py.
+- Push to a private GitHub repo and create a Release tag (e.g., v1.0).
 
-### Notebook
-Open **Final_Exam.ipynb** in Jupyter/Colab to view prompts, pseudocode, analyses, and examples.
+## Academic Integrity & AI Use
+- Prompts and AI outputs are summarized in conversation_log.txt (5–10 lines per prompt), with explicit course constraint checks.
+- All code confines itself to intro level techniques (Weeks 1–10) and avoids advanced patterns or libraries.
 
-## Tested Concepts (Course Mapping)
-- **Week 3–5**: menu loops, clean prompts, guard clauses.
-- **Week 6**: defensive programming, simple `try/except`, input validation.
-- **Week 8**: JSON access via `get` and length/type checks.
-- **Week 9–11 (light)**: http→https choice and basic status checks (kept at beginner level).
+---
 
-## Academic Notes
-- Beginner scope only (lists/dicts, loops, prints, basic file I/O, basic `try/except`).
-- No advanced libraries, no custom exceptions, no async/OO required.
+*If any required phrasing from the brief differs, please let me know and I will adapt this README wording to exactly match the Word file’s checklist.*
